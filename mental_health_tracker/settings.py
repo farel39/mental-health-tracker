@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kouwuc1f8304sy7m^x@irc9k(c@ghn(6q*a7z%2=zg%y$p0nk!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+PRODUCTION = os.getenv("PRODUCTION", False)
+DEBUG = not PRODUCTION
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "argya-farel-mentalhealthtracker.pbp.cs.ui.ac.id"]
 
@@ -125,6 +126,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://argya-farel-mentalhealthtracker.pbp.cs.ui.ac.id/", "https://argya-farel-mentalhealthtracker.pbp.cs.ui.ac.id/"]
-
-PRODUCTION = os.getenv("PRODUCTION", False)
-DEBUG = not PRODUCTION
